@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daylight | Daily & Weekly Planner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+    <header class="header">
+      <div>
+        <p class="eyebrow">YOUR PERSONAL PLANNER</p>
+        <h1>Daylight <span>☀</span></h1>
+        <p class="subtitle">Make today count, one task at a time.</p>
+      </div>
+      <div class="today-badge" id="todayDate"></div>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab active" data-view="daily">Daily tasks</button>
+      <button class="tab" data-view="weekly">Weekly planner</button>
+    </nav>
+
+    <!-- DAILY VIEW -->
+    <section id="dailyView" class="view">
+      <div class="welcome">
+        <div>
+          <p class="eyebrow">A FRESH START</p>
+          <h2 id="greeting">Good day!</h2>
+          <p>Focus on what matters today.</p>
+        </div>
+        <div class="sun-icon">☀</div>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <span>Total tasks</span>
+          <strong id="dailyTotal">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Completed</span>
+          <strong id="dailyCompleted">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Progress</span>
+          <strong id="dailyPercent">0%</strong>
+        </div>
+      </div>
+
+      <div class="progress-track">
+        <div id="dailyProgress" class="progress-fill"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">YOUR CHECKLIST</p>
+            <h2>Today's tasks</h2>
+          </div>
+          <span class="task-count" id="dailyCount">0 tasks</span>
+        </div>
+
+        <form id="dailyForm" class="task-form">
+          <input
+            id="dailyInput"
+            type="text"
+            placeholder="What do you need to do?"
+            maxlength="120"
+            required
+          >
+
+          <select id="dailyPriority" aria-label="Priority">
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+            <option value="low">Low</option>
+          </select>
+
+          <button class="add-btn" type="submit">+ Add</button>
+        </form>
+
+        <div id="dailyList" class="task-list"></div>
+
+        <div id="dailyEmpty" class="empty-state">
+          <div>🌱</div>
+          <h3>A little space for new goals</h3>
+          <p>Add your first task and start your day.</p>
+        </div>
+
+        <button id="clearDaily" class="text-btn">
+          Clear completed tasks
+        </button>
+      </div>
+    </section>
+
+    <!-- WEEKLY VIEW -->
+    <section id="weeklyView" class="view hidden">
+      <div class="welcome">
+        <div>
+          <p class="eyebrow">PLAN YOUR WEEK</p>
+          <h2>A week of possibilities</h2>
+          <p>Small steps, consistent progress.</p>
+        </div>
+        <div class="sun-icon">📅</div>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <span>Total tasks</span>
+          <strong id="weeklyTotal">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Completed</span>
+          <strong id="weeklyCompleted">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Progress</span>
+          <strong id="weeklyPercent">0%</strong>
+        </div>
+      </div>
+
+      <div class="progress-track">
+        <div id="weeklyProgress" class="progress-fill"></div>
+      </div>
+
+      <div class="week-heading">
+        <div>
+          <p class="eyebrow">YOUR SCHEDULE</p>
+          <h2 id="weekLabel">This week</h2>
+        </div>
+        <div class="week-controls">
+          <button id="prevWeek" class="icon-btn" aria-label="Previous week">←</button>
+          <button id="thisWeek" class="today-btn">Today</button>
+          <button id="nextWeek" class="icon-btn" aria-label="Next week">→</button>
+        </div>
+      </div>
+
+      <div id="weekDays" class="week-days"></div>
+
+      <div class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow" id="selectedDayLabel">SELECTED DAY</p>
+            <h2 id="selectedDayTitle">Monday</h2>
+          </div>
+          <span class="task-count" id="weeklyCount">0 tasks</span>
+        </div>
+
+        <form id="weeklyForm" class="task-form">
+          <input
+            id="weeklyInput"
+            type="text"
+            placeholder="Add a task for this day..."
+            maxlength="120"
+            required
+          >
+
+          <select id="weeklyPriority" aria-label="Priority">
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+            <option value="low">Low</option>
+          </select>
+
+          <button class="add-btn" type="submit">+ Add</button>
+        </form>
+
+        <div id="weeklyList" class="task-list"></div>
+
+        <div id="weeklyEmpty" class="empty-state">
+          <div>📝</div>
+          <h3>Your day is wide open</h3>
+          <p>Add a task to make a plan.</p>
+        </div>
+
+        <button id="clearWeekly" class="text-btn">
+          Clear completed tasks
+        </button>
+      </div>
+    </section>
+
+    <footer>
+      <p>Made for your little and big goals <span>♥</span></p>
+      <button id="resetAll" class="reset-btn">Reset all tasks</button>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
